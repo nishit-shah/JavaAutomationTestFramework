@@ -14,11 +14,11 @@ public class CucumberUtil {
 	//Converts Data Table into Dictionary and identifies the Column values based on ColumnName
 	public static List<DataCollection>ConvertDataTableToDict(DataTable table){
 		_dataCollection.clear();
-		List<List<String>> data = table.asLists();
+		List<String> data = table.asList();
 		int rowNumber = 0;
-		for(List<String> col:data) {
-			for(int colIndex= 0; colIndex< col.size();colIndex++) {
-				_dataCollection.add(rowNumber, new DataCollection(data.get(0).get(colIndex),col.get(colIndex),rowNumber));
+		for(String col:data) {
+			for(int colIndex= 0; colIndex< col.length();colIndex++) {
+				_dataCollection.add(rowNumber, new DataCollection(data.get(2),data.get(3),rowNumber));
 				rowNumber++;
 			}
 			

@@ -11,6 +11,7 @@ import com.spec.framework.controls.elements.Button;
 import com.spec.framework.controls.elements.ButtonBase;
 import com.spec.framework.controls.elements.TextBox;
 import com.spec.framework.controls.elements.TextBoxBase;
+import com.spec.test.cucumbertest.model.LoginModel;
 
 public class LoginPage extends BasePage {
 	
@@ -43,6 +44,15 @@ public class LoginPage extends BasePage {
 	public AdminPage Login(String username,String password) {
 		txtUserName.sendKeys(username);
 		txtPassword.sendKeys(password);
+		btnLogin.submit();
+		DriverContext.WaitForPageToLoad();
+		return GetInstance(AdminPage.class);
+		
+	}
+	
+	public AdminPage LoginCuc(LoginModel loginModel) {
+		txtUserName.sendKeys(loginModel.getUsername());
+		txtPassword.sendKeys(loginModel.getPassword());
 		btnLogin.submit();
 		DriverContext.WaitForPageToLoad();
 		return GetInstance(AdminPage.class);
